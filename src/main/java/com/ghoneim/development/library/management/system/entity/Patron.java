@@ -3,15 +3,13 @@ package com.ghoneim.development.library.management.system.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-import java.time.LocalDate;
-
 @AllArgsConstructor
 @Data
-public class Book {
+public class Patron {
     private long id;
-    private String title;
-    private String author;
-    private LocalDate publicationYear;
-    private String ISBN;
+    private String firstName;
+    private String lastName;
+    private String email;
+    private String phoneNumber;
 
 }

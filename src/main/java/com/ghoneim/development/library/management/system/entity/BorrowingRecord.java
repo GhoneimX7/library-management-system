@@ -1,17 +1,15 @@
 package com.ghoneim.development.library.management.system.entity;
 
+import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-import java.time.LocalDate;
-
 @AllArgsConstructor
 @Data
-public class Book {
+@Entity
+public class BorrowingRecord {
     private long id;
-    private String title;
-    private String author;
-    private LocalDate publicationYear;
-    private String ISBN;
+    private Patron patron;
+    private Book book;
 
 }
