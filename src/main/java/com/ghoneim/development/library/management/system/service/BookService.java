@@ -8,8 +8,11 @@ import java.util.List;
 
 @Service
 public class BookService {
-    public List<Book> books() {
-        List<Book> bookList = new ArrayList<>();
-        return new ArrayList<Book>();
+    public List<Book> getBooks(){
+
+        List<Book> books = new ArrayList<>();
+        books.add(new Book(1, "title", "author", 1999, "765924672937"));
+        return books;
     }
+
 }
