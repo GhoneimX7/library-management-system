@@ -110,3 +110,6 @@ Build a Library Management System API using Spring Boot. The system should allow
 ● Testing: Assess the coverage and effectiveness of unit tests.
 
 ● Bonus: Consider additional features, like authorization, effective usage of transactions, caching, and aspects.
+
+## Database Schema
+● https://dbdesigner.page.link/h7EpngN171hJSDGf7
