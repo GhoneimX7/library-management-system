@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS `Book` (
-	`id` int AUTO_INCREMENT NOT NULL UNIQUE,
-	`title` varchar(48) NOT NULL,
+	`id` bigint AUTO_INCREMENT NOT NULL UNIQUE,
+	`title` varchar(220) NOT NULL,
 	`author` varchar(48) NOT NULL,
 	`publication_year` int NOT NULL,
 	`isbn` varchar(20) NOT NULL,
@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS `Book` (
 );
 
 CREATE TABLE IF NOT EXISTS `Patron` (
-	`id` int AUTO_INCREMENT NOT NULL UNIQUE,
+	`id` bigint AUTO_INCREMENT NOT NULL UNIQUE,
 	`first_name` varchar(18) NOT NULL,
 	`last_name` varchar(18) NOT NULL,
 	`email` varchar(48) NOT NULL UNIQUE,
@@ -17,9 +17,9 @@ CREATE TABLE IF NOT EXISTS `Patron` (
 );
 
 CREATE TABLE IF NOT EXISTS `borrowing_record` (
-	`id` int AUTO_INCREMENT NOT NULL UNIQUE,
-	`book_id` int NOT NULL,
-	`patron_id` int NOT NULL,
+	`id` bigint AUTO_INCREMENT NOT NULL UNIQUE,
+	`book_id` bigint NOT NULL,
+	`patron_id` bigint NOT NULL,
 	PRIMARY KEY (`id`)
 );
 

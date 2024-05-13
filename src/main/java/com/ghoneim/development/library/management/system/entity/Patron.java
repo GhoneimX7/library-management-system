@@ -9,7 +9,20 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity()
-@Table(name = "patron")
+@Table(
+        name = "patron",
+        schema = "library",
+        uniqueConstraints = {
+                @UniqueConstraint(
+                        name = "email_unique",
+                        columnNames = "email"
+                ),
+                @UniqueConstraint(
+                        name = "phone_number_unique",
+                        columnNames = "phone_number"
+                )
+        }
+        )
 public class Patron {
 
     @Id
@@ -17,16 +30,16 @@ public class Patron {
     @Column(name = "id")
     private long id;
 
-    @Column(name = "first_name")
+    @Column(name = "first_name", nullable = false)
     private String firstName;
 
-    @Column(name = "last_name")
+    @Column(name = "last_name", nullable = false)
     private String lastName;
 
-    @Column(name = "email")
+    @Column(name = "email", nullable = false)
     private String email;
 
-    @Column(name = "phone_number")
+    @Column(name = "phone_number", nullable = false)
     private String phoneNumber;
 
 }

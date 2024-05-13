@@ -10,14 +10,22 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity()
-@Table(name = "book")
+@Table(
+        name = "book",
+        schema = "library",
+        uniqueConstraints = {
+                @UniqueConstraint(
+                        name = "isbn_unique",
+                        columnNames = "isbn")
+        }
+        )
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     private long id;
 
-    @Column(name="title")
+    @Column(name="title", nullable = false)
     private String title;
 
     @Column(name="author")
@@ -26,7 +34,7 @@ public class Book {
     @Column(name="publication_year")
     private int publicationYear;
 
-    @Column(name="isbn")
+    @Column(name="isbn", nullable = false)
     private String ISBN;
 
 }

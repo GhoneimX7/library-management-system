@@ -3,14 +3,13 @@ package com.ghoneim.development.library.management.system.entity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-
-import java.util.ArrayList;
-import java.util.List;
+import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
+@NoArgsConstructor
 @Data
 @Entity()
-@Table(name = "borrowing_record")
+@Table(name = "borrowing_record", schema = "library")
 public class BorrowingRecord {
 
     @Id
@@ -18,12 +17,9 @@ public class BorrowingRecord {
     @Column(name = "id")
     private long id;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "book_id", referencedColumnName = "id")
-    private List<Book> books = new ArrayList<>();
+    @Column(name = "patron_id", nullable = false)
+    private long patronId;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "patron_id", referencedColumnName = "id")
-    private List<Patron> patrons = new ArrayList<>();
-
+    @Column(name = "book_id", nullable = false)
+    private long bookId;
 }
