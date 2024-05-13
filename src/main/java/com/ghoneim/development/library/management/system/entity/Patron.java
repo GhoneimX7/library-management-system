@@ -8,7 +8,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Entity(name = "patron")
+@Entity()
+@Table(name = "patron")
 public class Patron {
 
     @Id
