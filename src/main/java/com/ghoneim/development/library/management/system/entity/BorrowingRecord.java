@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.CreatedDate;
+
+import java.time.LocalDateTime;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -13,13 +16,20 @@ import lombok.NoArgsConstructor;
 public class BorrowingRecord {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "borrowing_record_generator")
+    @SequenceGenerator(name = "borrowing_record_generator", sequenceName = "borrowing_sequence", allocationSize = 1)
     @Column(name = "id")
     private long id;
 
-    @Column(name = "patron_id", nullable = false)
-    private long patronId;
+    @ManyToOne()
+    @JoinColumn(name = "book_id")
+    private Book book;
 
-    @Column(name = "book_id", nullable = false)
-    private long bookId;
+    @ManyToOne()
+    @JoinColumn(name = "patron_id")
+    private Patron patron;
+
+    @CreatedDate
+    @Column(name = "borrowing date", nullable = false)
+    LocalDateTime borrowingDate;
 }

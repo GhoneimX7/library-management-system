@@ -16,12 +16,14 @@ import lombok.NoArgsConstructor;
         uniqueConstraints = {
                 @UniqueConstraint(
                         name = "isbn_unique",
-                        columnNames = "isbn")
+                        columnNames = "isbn"
+                )
         }
         )
 public class Book {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "book_generator")
+    @SequenceGenerator(name = "book_generator", sequenceName = "book_sequence", allocationSize = 1)
     @Column(name="id")
     private long id;
 

@@ -26,7 +26,8 @@ import lombok.NoArgsConstructor;
 public class Patron {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "patron_generator")
+    @SequenceGenerator(name = "patron_generator", sequenceName = "patron_sequence", allocationSize = 1)
     @Column(name = "id")
     private long id;
 
